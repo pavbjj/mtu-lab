@@ -17,7 +17,7 @@ PING 10.171.176.130 (10.171.176.130) 1472(1500) bytes of data.
 ```
 As we can see, the packet with payload of 1472 (+32 ICMP and IP overhead) is still allowed through despite MTU set to 1000 on eth1 (ingress of the Router)
 
-On router, we can observe that we will accept packets with size of 1472 but the response is with length of MTU of eth1 (1000-32=972):
+On router, we can observe that we will accept packets with size of 1472 but the response is with length of MTU of eth1 (1000-24=976):
 ```
 root@router-1:~# tcpdump -iany -n -nn icmp and host 10.1.1.20
 tcpdump: data link type LINUX_SLL2
