@@ -1,4 +1,4 @@
-# Scenario 1, MTU on ingress eth1
+# Scenario 1: MTU on ingress eth1
 ```mermaid
 graph LR
     C["Client<br/>eth0<br/>MTU 1500<br/>"]
