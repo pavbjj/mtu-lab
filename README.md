@@ -19,7 +19,7 @@ PING 10.171.176.130 (10.171.176.130) 1472(1500) bytes of data.
 1480 bytes from 10.171.176.130: icmp_seq=1 ttl=63 time=0.675 ms
 1480 bytes from 10.171.176.130: icmp_seq=2 ttl=63 time=0.603 ms
 ```
-As we can see, the packet with payload of 1472 (+32 ICMP and IP overhead) is still allowed through despite MTU set to 1000 on eth1 (ingress of the Router)
+As we can see, the packet with payload of 1472 (+ 20 IP header + 4 ICMP header, total = 1500) is still allowed through despite MTU set to 1000 on eth1 (ingress of the Router)
 
 On router, we can observe that we will accept packets with size of 1472 but the response is with length of MTU of eth1 (1000-24=976):
 ```
