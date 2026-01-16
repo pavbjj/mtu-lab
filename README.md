@@ -160,3 +160,11 @@ listening on any, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
 12:56:03.509859 ens192 In  IP 10.1.1.21.48888 > 10.171.176.130.80: Flags [.], ack 4741, win 466, options [nop,nop,TS val 2969238105 ecr 4039942316,nop,nop,sack 1 {10137:10922}], length 0
 12:56:03.509859 ens192 In  IP 10.1.1.21.48888 > 10.171.176.130.80: Flags [.], ack 8189, win 440, options [nop,nop,TS val 2969238105 ecr 4039942316,nop,nop,sack 1 {10137:10922}], length 0
 ```
+
+### Conclusion:
+* TCP starts with MSS 1460
+* Actual path MTU is 1000
+* Router sends ICMP need-to-frag
+* Linux updates PMTU cache
+* TCP retransmits with ~948-byte segments
+* No IP fragmentation occurs (no IP offset)
